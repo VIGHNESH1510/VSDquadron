@@ -24,4 +24,22 @@
 
      ![Screenshot (258)](https://github.com/VIGHNESH1510/VSDquadron/assets/173612404/36a73ba3-18ba-45d1-a039-6427b900744b)
 
+# TASK 2
+## To write a C Program for Clock Divider Circuit And Compile it to RISC File
+A Clock Divider Circuit is used to divide the operating frequency of the clock based on the Division Factor In relative to the Master Clock.
+## The below image is the C Program for the Clock Divider Circuit along with its output value,
+
+![WhatsApp Image 2024-06-25 at 16 39 08_c085d847](https://github.com/VIGHNESH1510/VSDquadron/assets/173612404/7b939c39-26a9-4b0a-8612-7d52c6d6e2f8)
+
+## The Assembly code for the Clock Divider Circuit,
+
+![WhatsApp Image 2024-06-25 at 16 39 06_1e5f4607](https://github.com/VIGHNESH1510/VSDquadron/assets/173612404/2d3b5771-8c12-4315-b58f-0d4518d3b0a9)
+
+## The Reduced Assembly Code for the Clock Divider Circuit,
+
+![WhatsApp Image 2024-06-25 at 16 39 06_f0126ef9](https://github.com/VIGHNESH1510/VSDquadron/assets/173612404/6d6327ca-4a32-448a-bc8c-7efff0dff4ae)
+
+
+
+
 
