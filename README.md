@@ -42,7 +42,7 @@ A Clock Divider Circuit is used to divide the operating frequency of the clock b
 ________
 
 ## TASK 3
-## COMPILATION OF THR CODE USING SPIKE IN RISC COMPILER
+## COMPILATION OF THE CODE  IN RISC COMPILER USING SPIKE
    + To compile the C code for clock Divider in risc using the **spike**, we use the commands
 
      ``` js
