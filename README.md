@@ -23,6 +23,7 @@
      when we replace the **-O1** with **Ofast** we can observe that the number of instructions set will be reduced.
 
      ![Screenshot (258)](https://github.com/VIGHNESH1510/VSDquadron/assets/173612404/36a73ba3-18ba-45d1-a039-6427b900744b)
+     __________
 
 # TASK 2
 ## To write a C Program for Clock Divider Circuit And Compile it to RISC File
@@ -38,8 +39,36 @@ A Clock Divider Circuit is used to divide the operating frequency of the clock b
 ## The Reduced Assembly Code for the Clock Divider Circuit,
 
 ![WhatsApp Image 2024-06-25 at 16 39 06_f0126ef9](https://github.com/VIGHNESH1510/VSDquadron/assets/173612404/6d6327ca-4a32-448a-bc8c-7efff0dff4ae)
+________
 
+## TASK 3
+## ANALYSES OF THE  C CODE USING THE SPIKE 
+   + To compile the C code for clock Divider in risc using the **spike**, we use the commands
 
+     ``` js
+         riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o clockdivider.o clockdivider.c
+         spike pk clockdivider.o
+     ```
+     
+  + we may verify the output of the risc compiler with the output of the C code
+    
+![Screenshot 2024-06-27 142805](https://github.com/VIGHNESH1510/VSDquadron/assets/173612404/0992ced2-0868-4bfe-a9c5-2d39dd365671)
+
++ To debug the Assembly code we use the command
+
+``` js
+    spike -d pk clockdivider.o
+    until pc 0 100b0
+```
+
++ To read the contents in instruction 
+
+  ``` js
+      reg 0 a0
+  ```
+![Screenshot 2024-06-27 123634](https://github.com/VIGHNESH1510/VSDquadron/assets/173612404/dd01ae40-fea6-45c3-be07-5911332ccc85)
+
+  ______
 
 
 
