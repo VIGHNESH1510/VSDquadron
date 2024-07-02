@@ -144,6 +144,13 @@ ________
   |**imm[10:5]**| 7 bits |The upper part of the immediate value. |
 
 
+
+
+
+
+
+
+
 ## U-TYPE
 U-Type instructions in RISC-V are used for instructions that require a large immediate value, typically for loading upper immediate values into a register or for performing arithmetic on addresses.There are no funct3, rs1, rs2, and funct7 in U-type. This type of instruction structure is very simple.
 
@@ -171,6 +178,246 @@ U-Type instructions in RISC-V are used for instructions that require a large imm
   |**opcode**| 7 bits |Specifies the primary operation category, which is 1101111 for the JAL instruction.|
   |**rd**| 5 bits |The destination register where the return address is stored.|
   |**imm[20/10:1/11/19:12]**| 20 bits |The immediate value, which is used to calculate the jump target address. The bits are placed non-contiguously to fit into the instruction format.|
-  
 
+  let us compute some 32-bit Instruction code in the Instruction type format for some RISC-V Instructions 
+
+### ADD r1,r2,r3
+```
+Type : R-Type
+
+opcode : 0110011
+
+rd : 00001 
+
+funct3 : 000
+
+rs1 : 00010 
+
+rs2 : 00011
+
+funct7 : 0000000
+
+32-bit code : 0000000 00011 00010 000 00001 0110011
+```
+
+### SUB r3,r1,r2
+
+  ```
+Type : R-Type
+
+opcode : 0110011
+
+rd : 00011 
+
+funct3 : 000
+
+rs1 : 00010 
+
+rs2 : 00001
+
+funct7 : 0100000
+
+32-bit code : 0100000 00010 00001 000 00011 0110011
+```
+      
+ ### AND r2,r1,r3
+
+  ```
+Type : R-Type
+
+opcode : 0110011
+
+rd : 00011 
+
+funct3 : 111
+
+rs1 : 00001 
+
+rs2 : 00011
+
+funct7 : 0000000
+
+32-bit code : 0000000 00011 00001 111 00010 0110011
+```
+
+### OR r8,r2,45
+
+```
+Type : R-Type
+
+opcode : 0110011
+
+rd :  00010
+
+funct3 : 110
+
+rs1 : 0001 0
+
+rs2 : 00101
+
+funct7 : 0000000
+
+32-bit code : 0000000 00101 00010 110 01000 0110011
+```
+
+### XOR r8,r1,r4
+```
+Type : R-Type
+
+opcode : 0110011
+
+rd :  01000
+
+funct3: 100
+
+rs1 : 00001
+
+rs2 : 00100
+
+funct7 : 0000000
+
+32-bit code : 0000000 00100 00001 100 01000 0110011
+```
+
+### SLT r10,r2,r4
+```
+Type : R-Type
+
+opcode : 0110011
+
+rd :  01010
+
+funct3 : 010
+
+rs1 : 00010
+
+rs2 : 00100
+
+funct7 : 0000000
+
+32-bit code : 0000000 00100 00010 010 01010 0110011
+```
+
+### ADDI r12,r3,5
+
+```
+Type : I-Type
+
+opcode : 0010011
+
+rd :  01100
+
+funct3 : 000
+
+rs1 : 00011
+
+imm[11:0] :  000000000101
+
+32-bit code : 000000000101 00011 000 01100 0010011
+```
+
+### SW r3,r1,4
+
+```
+Type : I-Type
+
+opcode:  0100011
+
+rd : 00011
+
+funct3 : 000
+
+rs1 : 00001
+
+imm[4] : 000000000100
+
+32-bit code : 000000000101 00011 000 01100 0010011
+```
+
+### SRL r16,r11,r2
+
+```
+Type : R-Type
+
+opcode : 0b0110011
+
+rd : 0b10000
+
+funct3 : 0b101
+
+rs1 : 0b01011
+
+rs2 :  0b00010
+
+funct7 : 0b0000000
+
+32-bit code : 0000000 00010 01011 101 10000 0110011
+```
+
+### BNE r0,r1,20
+```
+Type : B-Type
+
+opcode : 1100011
+
+funct3 : 001
+
+rs1 :  00000
+
+rs2 :  00001
+
+imm : 000000000010100
+
+32-bit code: 1100011 001 00000 00001 000000010100
+```
+### BEQ r0,r0,15
+```
+Type: I-Type
+
+opcode: 0001100
+
+rd : 00000
+
+funct3: 000
+
+rs1 :00000
+
+imm[15]: 000000000001111
+
+32-bit code: 000000001111 00000 000 00000 0001100
+```
+
+### LW r13,r11,2
+```
+Type: I-Type
+
+opcode: 0000011
+
+rd : 1101
+
+rs1 : 1011
+
+imm[2]: 000000000010
+
+32-bit code: 0000011 01011 01101 000000000000010
+```
+### SLL r15,r11,r2
+
+```
+Type: R-Type
+
+opcode: 0110011
+
+rd : 01111
+
+funct3: 001
+
+rs1 : 00011
+
+rs2 :  00010
+
+funct7: 0000000
+
+32-bit code:  0000000 00010 00011 001 01111 0110011
+```
 
