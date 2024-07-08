@@ -1,4 +1,4 @@
-![image](https://github.com/VIGHNESH1510/VSDquadron/assets/173612404/af11a702-654d-46f6-8db2-0537be7b9717)# TASK 1
+# TASK 1
 ## INSTALLATION OF LEAFPAD
 
   ![Screenshot (246)](https://github.com/VIGHNESH1510/VSDquadron/assets/173612404/1a8e93c0-b6fa-4997-b354-19470a26b43e)
@@ -420,4 +420,55 @@ funct7: 0000000
 
 32-bit code:  0000000 00010 00011 001 01111 0110011
 ```
+--------------
+# TASK 5
+## USING RISCV CORE ,CREATE A VERILOG NETLIST AND TESTBENCH AND TO ANALYSE THE WAVEFORMS
+### STEPS
+1.To clone repository ,use the command 
+```
+      $ git clone https://github.com/vinayrayapati/rv32i.git my_riscv_project
+      $ cd my_riscv_project
+```
+2. To install simulation tools,
+ ```
+        $ sudo apt update
+      $ sudo apt install iverilog gtkwave
+ ```
+
+
+   ![image](https://github.com/VIGHNESH1510/VSDquadron/assets/173612404/6c1e99b0-fd6f-4b34-bfef-680c4266734e)
+
+Let's anlayse the waveform for some of the instructions of RISCV 
+
+#### ADD
+
+![image](https://github.com/VIGHNESH1510/VSDquadron/assets/173612404/d6f9fc92-5476-43d1-9ea6-ecbe0f2cce98)
+
+#### SUB
+
+![image](https://github.com/VIGHNESH1510/VSDquadron/assets/173612404/39b5c61a-385d-4ac1-bbdf-abca720b00d0)
+
+#### AND
+
+![image](https://github.com/VIGHNESH1510/VSDquadron/assets/173612404/72258adf-d15f-4fe7-86ad-ab908d850bf0)
+
+#### OR
+
+![image](https://github.com/VIGHNESH1510/VSDquadron/assets/173612404/437799b2-a493-4867-998d-535a14e57582)
+
+#### XOR
+
+![image](https://github.com/VIGHNESH1510/VSDquadron/assets/173612404/6cf74450-7aae-4aa9-9381-45a8def8560e)
+
+#### SLT
+
+![image](https://github.com/VIGHNESH1510/VSDquadron/assets/173612404/a2f9b764-4448-4a55-a2a3-379310c77ff3)
+
+#### ADDI
+
+![image](https://github.com/VIGHNESH1510/VSDquadron/assets/173612404/90f6abd1-8d6a-4463-8b29-814a5320b577)
+
+#### SW
+
+![image](https://github.com/VIGHNESH1510/VSDquadron/assets/173612404/a557e6c8-52ee-4999-a5b7-46ed2ae5a18a)
 
