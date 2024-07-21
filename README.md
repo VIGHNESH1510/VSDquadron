@@ -472,3 +472,80 @@ Let's anlayse the waveform for some of the instructions of RISCV
 
 ![image](https://github.com/VIGHNESH1510/VSDquadron/assets/173612404/a557e6c8-52ee-4999-a5b7-46ed2ae5a18a)
 
+# TASK 6
+## OVERVIEW OF THE PROJECT WITH ITS CIRCUIT DIAGRAM
+### CLOCK DIVIDER 
+A digital clock divider is a circuit that reduces the frequency of an input clock signal to produce a lower-frequency output clock signal. This is achieved by dividing the input clock frequency by a specific integer value (the divisor). Clock dividers are widely used in digital systems to generate different clock frequencies required for various components within the system.
+#### Practical Example
+If you have an FPGA running at 100 MHz and need a 1 MHz clock for a specific component, you can use a clock divider with a divisor of 100. This will divide the 100 MHz input clock by 100, resulting in a 1 MHz output clock.
+
+### COMPONENTS REQUIRED
+    VSD Squadron Mini Board
+    74HC74 D Flip-Flop IC
+    Bread Board and Jumper Wires
+    LEDs
+### STEPS
+#### Power the 74HC74:
+Connect Vcc of the 74HC74 to 5V.
+Connect GND of the 74HC74 to ground.
+
+#### Connect the Clock Signal:
+Connect the clock output from the VSD Quadron Mini board to the clock input (C) of the 74HC74.
+
+#### Configure the Flip-Flop:
+Connect the D input of the 74HC74 to a logic high (Vcc) to ensure the Q output toggles on each clock pulse.
+Connect the Set (S) and Reset (R) inputs to ground (assuming you do not need asynchronous set/reset functionality).
+
+#### Output:
+The Q output of the 74HC74 will be your divided clock signal.
+
+### PROGRAM
+``` js
+#include <ch32v00x.h>
+#include <debug.h>
+
+#define LED_GPIO_PORT GPIOD
+#define LED_GPIO_PIN GPIO_Pin_6
+#define LED_CLOCK_ENABLE RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOD, ENABLE)
+#define DIVIDER_FACTOR 5000000 // Adjust this to change the divider factor
+
+void NMI_Handler(void)__attribute__((interrupt("WCH-Interrupt-fast")));
+void HardFault_Handler(void)__attribute__((interrupt("WCH-Interrupt-fast")));
+
+int main(void)
+{
+    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);
+    SystemCoreClockUpdate();
+
+    GPIO_InitTypeDef GPIO_InitStructure = {0};
+
+    LED_CLOCK_ENABLE;
+    GPIO_InitStructure.GPIO_Pin = LED_GPIO_PIN;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(LED_GPIO_PORT, &GPIO_InitStructure);
+
+    uint32_t counter = 0;
+    uint8_t ledState = 0;
+
+    while (1)
+    {
+        counter++;
+        if (counter >= DIVIDER_FACTOR)
+        {
+            counter = 0;
+            ledState ^= 1; // Toggle LED state
+            GPIO_WriteBit(LED_GPIO_PORT, LED_GPIO_PIN, ledState);
+        }
+    }
+}
+
+void NMI_Handler(void) {}
+void HardFault_Handler(void)
+{
+    while (1)
+    {
+    }
+}
+```
+#### PROJECT VIDEO LINK: https://drive.google.com/file/d/1DxupL_vnmPmHO0LSP0Oiy7Slu_ouxOWC/view?usp=drivesdk
